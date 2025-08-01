@@ -2,7 +2,7 @@ import type { ErrorRequestHandler } from "express"
 import env from "../env"
 import { HttpError } from "../errors/HttpError"
 
-const errorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
+const errorMiddleware: ErrorRequestHandler = (err, _req, res, _next) => {
 	const isHttpError = err instanceof HttpError
 
 	const statusCode = isHttpError ? err.statusCode : 500
@@ -19,4 +19,4 @@ const errorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
 	res.status(statusCode).json(responseBody)
 }
 
-export default errorHandler
+export default errorMiddleware
