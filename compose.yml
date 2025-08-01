@@ -1,0 +1,8 @@
+services:
+  finance_pg:
+    image: bitnami/postgresql
+    environment:
+      - POSTGRES_PASSWORD=221001
+      - POSTGRES_DB=finance
+    ports:
+      - 5432:5432
