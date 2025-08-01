@@ -3,7 +3,7 @@ import Express from "express"
 import helmet from "helmet"
 import morgan from "morgan"
 import userRouter from "./modules/user/routes/userRouter"
-import errorHandler from "./shared/middlewares/errorHandler"
+import errorMiddleware from "./shared/middlewares/errorMiddleware"
 
 const app = Express()
 
@@ -14,6 +14,6 @@ app.use(Express.json())
 
 app.use("/user", userRouter)
 
-app.use(errorHandler)
+app.use(errorMiddleware)
 
 export default app
